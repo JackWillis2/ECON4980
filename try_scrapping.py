@@ -6,8 +6,6 @@ response = urllib.request.urlopen("http://coinmarketcap.com/", context=unverifie
 
 page = response.read()
 
-print(page)
-
 f= open("coinmarketcap.html","wb")
 
 f.write(page)
