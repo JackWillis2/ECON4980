@@ -1,19 +1,26 @@
 import urllib.request
-import ssl
+import os
+import time
+import datetime
 
-unverified_context = ssl._create_unverified_context()
-response = urllib.request.urlopen("http://coinmarketcap.com/", context=unverified_context)
+if not  os.path.exists("html_files"):
+	os.mkdir("html_files")
 
-page = response.read()
+for i in range(5):
+	current_time_step=datetime.datetime.fromtimestamp(time.time()).strftime('%Y%m%d%H%M%S')
+	
+	response = urllib.request.urlopen("https://finance.yahoo.com/quote/%5EGSPC?p=^GSPC")
+	
+	html = response.read()
 
-f= open("coinmarketcap.html","wb")
+	print(html)
+	f=open("html_files/sandp" + current_time_step +".html","wb")
 
-f.write(page)
+	f.write(html)
 
-f.close()
-
-
-
+	f.close()
+	print("requesting coinmarketcap")
+	time.sleep(5)
 
 
 

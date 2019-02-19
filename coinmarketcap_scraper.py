@@ -15,9 +15,10 @@ for i in range(5):
 	html = response.read()
 
 	print(html)
-	f=open("html_files/coinmarketcap"+ current_time_step +".html,"wb")
+	f=open("html_files/coinmarketcap" + current_time_step +".html","wb")
 
-	f.write("html")
+	f.write(html)
 
 	f.close()
-	time.sleep()
+	print("requesting coinmarketcap")
+	time.sleep(2)
